@@ -26,13 +26,13 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- .container{
-  background-color: #FAF1E6;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 90%;
-  padding-left: 100px;
-  margin-top: 520px;
-  position: fixed;
+ .container {
+   background-color: #FAF1E6;
+   display: flex;
+   flex-wrap: wrap;/*wrap value specifies that the flex items will wrap if necessary*/
+   justify-content: flex-start;
+   width: 90%;
+   padding-left: 100px;
+   margin-top: 520px;
+   position: absolute;
  }
