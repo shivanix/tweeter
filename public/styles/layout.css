@@ -30,9 +30,11 @@ body {
    background-color: #FAF1E6;
    display: flex;
    flex-wrap: wrap;/*wrap value specifies that the flex items will wrap if necessary*/
-   justify-content: flex-start;
-   width: 90%;
-   padding-left: 100px;
+   justify-content: center;
+   align-items: center;
+   
    margin-top: 520px;
+   padding-left: 100px;
    position: absolute;
+   width: 90%;
  }

@@ -9,10 +9,10 @@
   transition-duration: 0.4s;
 }
 
-}
 #tweet-text{
   border: none;
   border-bottom: 2px solid #125D98;
   box-sizing: border-box;
+  background-color: #f4f1ec;
   width: 100%;
 }
