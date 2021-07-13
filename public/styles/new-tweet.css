@@ -1,4 +1,18 @@
-.counter{
-display: flex;
-justify-content: left;
+.button1{
+  background-color:#125D98;
+  color: #FFFF;
+  font-family: Bungee, sans-serif;
+}
+
+.button1:hover{
+  color: aqua;
+  transition-duration: 0.4s;
+}
+
+}
+#tweet-text{
+  border: none;
+  border-bottom: 2px solid #125D98;
+  box-sizing: border-box;
+  width: 100%;
 }
