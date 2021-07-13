@@ -32,6 +32,7 @@ const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 // Mount the tweets routes at the "/tweets" path prefix:
 app.use("/tweets", tweetsRoutes);
 
+//added a post req
 app.post("/", (req, res) => {
   res.redirect("index.html");
 });
