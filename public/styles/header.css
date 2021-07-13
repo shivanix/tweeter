@@ -1,5 +1,5 @@
 header{
-  border: 1px solid red;
+  border: 5px solid white;
   height: 400px;
   width: 100vw;
   position: absolute;
@@ -7,18 +7,10 @@ header{
   z-index:-1;
 
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-
-  background-color: #FAF1E6;
-  margin-top: 120px;
-}
-
-h2{
-  display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
-
+  flex-direction: column;
+  background-image: url("black-felt.png");
+  background-color: #3c8dad;
+  margin-top: 120px;
 }
