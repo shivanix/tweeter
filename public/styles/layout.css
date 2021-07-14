@@ -19,22 +19,23 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+   display: flex;
   
+   align-items: center;
+   flex-direction: column;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- .container {
+ /* .container {
    background-color: #FAF1E6;
-   display: flex;
-   flex-wrap: wrap;/*wrap value specifies that the flex items will wrap if necessary*/
-   justify-content: center;
-   align-items: center;
    
-   margin-top: 520px;
-   padding-left: 100px;
+   flex-wrap: wrap;/*wrap value specifies that the flex items will wrap if necessary*/
+   
+   /*
+   
    position: absolute;
    width: 90%;
- }
+ } */

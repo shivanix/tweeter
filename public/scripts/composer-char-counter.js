@@ -14,18 +14,25 @@ alert("Hey! Am working! Wohoo!");
 //   console.log(x, y);
 // });
 
-let counter = 0;
-document.addEventListener("keyup", (event) => {
-  console.log(event);
-  // your code here
-  const keyInput = event.key;  
-  // your code here
-  console.log(`Key pressed: ${keyInput}` )
-});
+// let counter = 0;
+// document.addEventListener("keyup", (event) => {
+//   console.log(event);
+//   // your code here
+//   const keyInput = event.key;  
+//   // your code here
+//   console.log(`Key pressed: ${keyInput}` )
+// });
 
-document.addEventListener("keydown", (event) => {
-  //console.log(event);
-  const keyInput = event.key;  
-  // your code here
-  console.log(`Key pressed: ${keyInput}` )
-});
+// document.addEventListener("keydown", (event) => {
+//   //console.log(event);
+//   const keyInput = event.key;  
+//   // your code here
+//   console.log(`Key pressed: ${keyInput}` )
+// });
+
+
+//  document.querySelector("#tweet-text").addEventListener("click",
+// blur, ()=>{
+//     console.log("Its blur!")
+//   })
+
