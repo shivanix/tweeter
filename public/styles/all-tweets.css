@@ -1,0 +1,28 @@
+hr{
+  border-style: solid none none none;
+  border-color: grey;
+  border-width: 5px;
+ 
+  width: 100%
+}
+
+.tweets-container header{
+display: flex;
+justify-content: space-between;
+}
+
+.tweets-container {
+  border: 2px solid black;
+
+  margin-top: 50px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  
+  width: 100%;
+}
+
+.tweets-container footer{
+  display: flex;
+  justify-content: space-between;
+ 
+}
