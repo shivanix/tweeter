@@ -1,7 +1,7 @@
 .button1 {
   background-color: #125D98;
   color: #FFFF;
-  /* display: flex; */
+  
   justify-content: space-between;
   font-family: Bungee, sans-serif;
 }
@@ -11,16 +11,12 @@
   transition-duration: 0.4s;
 }
 
-/* output{
-  align-self: flex-end;
-  justify-self: flex-end;
-} */
 
 .container {
   margin-top: 520px;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  ;
+  
   width: 100%;
 }
 
