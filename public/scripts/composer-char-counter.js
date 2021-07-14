@@ -1,4 +1,3 @@
-const { text } = require("body-parser");
 
 alert("Hey! Am working! Wohoo!");
 // console.log("Hey! Am working! Wohoo!");
@@ -32,11 +31,36 @@ alert("Hey! Am working! Wohoo!");
 //   console.log(`Key pressed: ${keyInput}` )
 // });
 
-$("#tweet-text").blur(function() {
-    // --- our code goes here ---
-    console.log("Wrote something in the input field, and then clicked outside the field and it lost its focus (blur).")
+// $("#tweet-text").blur(function() {
+//     // --- our code goes here ---
+//     console.log("Wrote something in the input field, and then clicked outside the field and it lost its focus (blur).")
+    
+//   });
+
+$("#tweet-text").on("keypress", function () {
+  // --- our code goes here ---
+  console.log("Triggered kepress event, when a keyboard-button is pressed.")
+  console.log(this.value);
+
+});
+
+
+
+/*
+  $("#tweet-text").on("input", function() {
+
+    // accessing the value of the input
+    console.log(this.value);
+
+    //finding the length of the input
+    const tweetLength = this.value.length;
+    
+    //
+    let output = $(this).next().find('#counterID');
+    // console.log(counter.value); //The this keyword is a reference to the button
+    output["0"].defaultValue = 140 - tweetLength;
     
   });
 
 
-
+*/
