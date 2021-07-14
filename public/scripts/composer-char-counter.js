@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 document.addEventListener("dblclick", (event) => {
   console.log(event);
-  // your code here
+
   let x = event.offsetX;
   let y = event.offsetY;
   console.log(x, y);
@@ -17,16 +17,15 @@ document.addEventListener("dblclick", (event) => {
 
 document.addEventListener("keyup", (event) => {
   console.log(event);
-  // your code here
+  
   const keyInput = event.key;  
-  // your code here
   console.log(`Key pressed: ${keyInput}` )
 });
 
 document.addEventListener("keydown", (event) => {
   //console.log(event);
   const keyInput = event.key;  
-  // your code here
+
   console.log(`Key pressed: ${keyInput}` )
 });
 */
@@ -46,9 +45,9 @@ $("#tweet-text").on("keypress", function () {
 });
 */
 
-/*-------------------------------------Showing characters left in the counter----------------*/
+/*-------------------------------------Showing characters remaining in the counter----------------*/
 
-/*
+
   $("#tweet-text").on("input", function() {
 
     // accessing the value of the input
@@ -57,12 +56,17 @@ $("#tweet-text").on("keypress", function () {
     //finding the length of the input
     const tweetLength = this.value.length;
     
-    // Using find & next 
-    let output = $(this).next().find('#counterID');
-    // console.log(counter.value); //The this keyword is a reference to the button
-    output["0"].defaultValue = 140 - tweetLength;
+    //next() method returns the next sibling elements(e that share the same parent) of the selected element.
+    // find() method returns descendant (child, grandchild, & so on) elements of the selected element. 
+    const output = $(this).next().find('output');
+    
+    //counter updating with the value of characters remaining
+    const charactersRemaining = 140 - tweetLength
+    output["0"].defaultValue = charactersRemaining;
+
+    
     
   });
 
 
-*/
+
