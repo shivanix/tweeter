@@ -1,3 +1,5 @@
+const { text } = require("body-parser");
+
 alert("Hey! Am working! Wohoo!");
 // console.log("Hey! Am working! Wohoo!");
 
@@ -30,9 +32,11 @@ alert("Hey! Am working! Wohoo!");
 //   console.log(`Key pressed: ${keyInput}` )
 // });
 
+$("#tweet-text").blur(function() {
+    // --- our code goes here ---
+    console.log("Wrote something in the input field, and then clicked outside the field and it lost its focus (blur).")
+    
+  });
 
-//  document.querySelector("#tweet-text").addEventListener("click",
-// blur, ()=>{
-//     console.log("Its blur!")
-//   })
+
 
