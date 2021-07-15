@@ -4,37 +4,37 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   console.log("Yes, am ready.");
 
 
-/*----------------------------------------adding event listener for submit--------------------------------*/
-// event.preventDefault() to prevent the default form submission behaviour.
+  /*----------------------------------------adding event listener for submit--------------------------------*/
+  // event.preventDefault() to prevent the default form submission behaviour.
 
-  $("#tweet-made").submit(function (event) {
+  $("#tweet-made").submit(function(event) {
     event.preventDefault();
     $(".error-message").hide(); // Hide error html element prior to validation
     const formData = $(this).serialize();
     console.log("Length: ", formData.length - 5);
 
     //validation before sending the form data to the server
-    if ((formData.length - 5) <= 140 && formData !== null && !((formData.length-5) <= 0)) {
-      // AJAX POST request
+    if ((formData.length - 5) <= 140 && formData !== null && !((formData.length - 5) <= 0)) {
+      
       $.ajax({
-          type: "POST",
-          url: '/tweets',
-          data: formData
-        })
+        type: "POST",
+        url: '/tweets',
+        data: formData
+      })
         //reloads the page after posting a valid tweet
-        .then(location.reload(true))
-
+        .then(location.reload(true));
+    //error messages
     } else {
       $(".error-message").slideDown(600);
       if (formData.length > 140) {
         $(".error-message").find("p").text("Oops! tweet content too long.");
       }
-      if ((formData.length-5) <= 0) {
+      if ((formData.length - 5) <= 0) {
         $(".error-message").find("p").text("Oops! tweet content is empty");
       }
       if (formData === null) {
@@ -45,28 +45,28 @@ $(document).ready(function () {
   });
 
   /*---------------------------------------f calls AJAX get req then renders tweets--------------- */
-  const loadTweets = function () {
+  const loadTweets = function() {
 
     $.ajax({
-        type: "GET",
-        url: '/tweets'
-      })
-      .then(function (moreTweets) {
+      type: "GET",
+      url: '/tweets'
+    })
+      .then(function(moreTweets) {
         renderTweets(moreTweets);
-      })
+      });
   };
   loadTweets();
-  });
+});
 
 /*----------------------------------------f to return HTML tweet structure-------------------------*/
 
-const createTweetElement = function (tweetData) {
+const createTweetElement = function(tweetData) {
   const userData = tweetData.user;
 
   const htmlMarkup = ` <article>
    <header>
      <div>
-       <img src="${userData.avatars}" alt="boy-img">
+       <img src="${userData.avatars}" alt="profileImage">
        <span>${escapeHtml(userData.name)}</span>
      </div>
      <span><h3>${escapeHtml(userData.handle)}</h3></span>
@@ -86,11 +86,11 @@ const createTweetElement = function (tweetData) {
   const $tweet = $(htmlMarkup);
 
   return $tweet;
-}
+};
 
 /*-------------------------------------f for taking in array of tweet objects----------------------------*/
 
-const renderTweets = function (tweetsArray) {
+const renderTweets = function(tweetsArray) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
@@ -99,8 +99,8 @@ const renderTweets = function (tweetsArray) {
     const $newTweet = createTweetElement(tweet);
     $('.tweets-container').prepend($newTweet);
   }
-}
+};
 
-const escapeHtml= function (str) {
+const escapeHtml = function(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-}
+};
