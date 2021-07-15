@@ -8,20 +8,18 @@ $(document).ready(function () {
 
   console.log("Yes, am ready.");
 
-  //renderTweets(tweetData);
 
-
-  /*----------------------------------------adding event listener for submit--------------------------------*/
-  // event.preventDefault() to prevent the default form submission behaviour.
+/*----------------------------------------adding event listener for submit--------------------------------*/
+// event.preventDefault() to prevent the default form submission behaviour.
 
   $("#tweet-made").submit(function (event) {
     event.preventDefault();
+    $(".error-message").hide(); // Hide error html element prior to validation
     const formData = $(this).serialize();
     console.log("Length: ", formData.length - 5);
 
     //validation before sending the form data to the server
-    if ((formData.length - 5) <= 140 && formData !== null && formData !== "") {
-
+    if ((formData.length - 5) <= 140 && formData !== null && !((formData.length-5) <= 0)) {
       // AJAX POST request
       $.ajax({
           type: "POST",
@@ -32,14 +30,15 @@ $(document).ready(function () {
         .then(location.reload(true))
 
     } else {
+      $(".error-message").slideDown(600);
       if (formData.length > 140) {
-        alert("Oops! tweet content too long.")
+        $(".error-message").find("p").text("Oops! tweet content too long.");
       }
-      if (formData === "") {
-        alert("Oops! tweet content is empty")
+      if ((formData.length-5) <= 0) {
+        $(".error-message").find("p").text("Oops! tweet content is empty");
       }
       if (formData === null) {
-        alert("Oops! tweet content is invalid")
+        $(".error-message").find("p").text("Oops! tweet content is invalid");
       }
     }
 
@@ -57,7 +56,7 @@ $(document).ready(function () {
       })
   };
   loadTweets();
-});
+  });
 
 /*----------------------------------------f to return HTML tweet structure-------------------------*/
 

@@ -1,3 +1,6 @@
+
+
+
 .btn-counter {
   display: flex;
   justify-content: space-between;
@@ -31,8 +34,17 @@
   width: 100%;
 }
 
+.error-message{
+  display: none;
+}
+
 .new-tweet label {
   font-weight: bold;
+  font-size: larger;
+}
+
+.new-tweet form{
+  padding-top: 20px;
 }
 
 #tweet-text {
