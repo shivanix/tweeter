@@ -3,35 +3,35 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const tweetData = [{
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": '1994-05-25'
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const tweetData = [{
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png",
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": '1994-05-25'
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd"
+//     },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 $(document).ready(function () {
 
   console.log("Yes, am ready.");
 
-  renderTweets(tweetData);
+  //renderTweets(tweetData);
 
 
   /*----------------------------------------adding event listener for submit--------------------------------*/
@@ -41,15 +41,34 @@ $(document).ready(function () {
     alert("Handler for .submit() called.");
     event.preventDefault();
     const formData = $(this).serialize();
-    console.log(event);
+    console.log("Length: ", formData.length);
 
-    // AJAX POST request
-    $.ajax({
-      type: "POST",
-      url: '/tweets',
-      data: formData
-    });
+    //validation before sending the form data to the server
+    if (formData.length <= 140 && formData !== null && formData !== "") {
+
+      // AJAX POST request
+      $.ajax({
+        type: "POST",
+        url: '/tweets',
+        data: formData
+      });
+    } else {
+      alert("Oops! Try again");
+    }
+
   });
+
+  const loadTweets = function (arr){
+    // $.get("/tweets", renderTweets(tweetData));
+    $.ajax({
+      type: "GET",
+      url: '/tweets'
+    })
+    .then(function (moreTweets){
+      renderTweets(moreTweets);
+    })
+  };
+  loadTweets();
 });
 
 /*----------------------------------------f to return HTML tweet structure-------------------------*/
@@ -77,7 +96,7 @@ const createTweetElement = function (tweetData) {
  </article>`;
 
   const $tweet = $(htmlMarkup);
-  
+
   return $tweet;
 }
 
@@ -90,6 +109,7 @@ const renderTweets = function (tweetsArray) {
 
   for (const tweet of tweetsArray) {
     const $newTweet = createTweetElement(tweet);
-    $('.tweets-container').append($newTweet);
+    $('.tweets-container').prepend($newTweet);
   }
 }
+
