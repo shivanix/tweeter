@@ -8,18 +8,32 @@
 $(document).ready(function() {
   // --- our code goes here ---
   console.log("Yes, am ready.");
+  console.log(timeago.format(new Date()));
 
-  const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
+  const tweetData = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
         "handle": "@SirIsaac"
       },
-    "content": {
+      "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-    "created_at": timeago.format(1461116232227)
- }
+      "created_at": '1994-05-25'
+    },
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ]
 
  const createTweetElement = function (tweetData){
   const userData = tweetData.user; 
@@ -35,7 +49,7 @@ $(document).ready(function() {
    <h2>${tweetData.content.text}</h2>
    <hr>
    <footer>
-     <span>${tweetData.created_at}</span>
+     <span>${timeago.format(tweetData.created_at)}</span>
      <div>
        <span><i class="fas fa-flag"></i></span>
        <span><i class="fas fa-retweet"></i></span>
@@ -47,14 +61,24 @@ $(document).ready(function() {
   return $tweet;
 }
 
- const $tweet = createTweetElement(tweetData);
-  
-  // Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
-  
-// console.log($tweet[0])
+//  const $tweet = createTweetElement(tweetData);
 
-$('.tweets-container').append($tweet);
 
+
+
+/*---------------------------------------------------f for taking array------------------------------------------------*/
+
+const renderTweets = function(tweetsArray){
+  // loops through tweets
+  // calls createTweetElement for each tweet
+  // takes return value and appends it to the tweets container
+
+  for (const tweet of tweetsArray) {
+    const $newTweet = createTweetElement(tweet);
+    $('.tweets-container').append($newTweet);
+  }
+}
+
+renderTweets(tweetData);
 });
 
