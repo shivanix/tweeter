@@ -13,7 +13,7 @@ hr{
 }
 
 .tweets-container {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   
   font-size: 15px;
 
@@ -32,6 +32,13 @@ hr{
  
 }
 
+.tweets-container article{
+  border: 1px solid black;
+  margin-bottom: 50px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  
+}
 .tweets-container article:hover{
   box-shadow: 2px 5px;
 }

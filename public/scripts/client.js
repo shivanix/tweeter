@@ -4,7 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 $(document).ready(function () {
 
   console.log("Yes, am ready.");
@@ -103,6 +102,6 @@ const renderTweets = function (tweetsArray) {
   }
 }
 
-function escapeHtml(str) {
+const escapeHtml= function (str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
