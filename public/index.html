@@ -13,11 +13,11 @@
     referrerpolicy="no-referrer" />
 
   <!--google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
-    rel="stylesheet"/>
+    rel="stylesheet" />
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -34,9 +34,11 @@
 
   <!---JS--->
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  
+
   <!-- timeago.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -65,9 +67,13 @@
   <main class="container">
 
     <section class="new-tweet">
-      
 
-      <form id= "tweet-made" action="/tweets" method="POST">
+
+      <form id="tweet-made" action="/tweets" method="POST">
+
+        <div class="error-message">
+          <p>error message goes here</p>
+        </div>
 
         <label for="tweet-text">What are you humming about?</label>
 
@@ -79,16 +85,15 @@
         </div>
 
       </form>
-      <div class="error-message">
-        <p>Please fix the error</p>
-      </div>
+
     </section>
 
     <section class="tweets-container">
 
-      </section>
-  
+    </section>
+
   </main>
 
 </body>
+
 </html>

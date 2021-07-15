@@ -1,40 +1,27 @@
-// alert("Hey! Am working! Wohoo!");
-
 
 /*-------------------------------------Showing characters remaining in the counter----------------*/
 
-$(document).ready(function () {
-  $("textarea").on("input", function () {
-    console.log("INPUT DETECTED!");
-    // accessing the value of the input
-    console.log(this.value);
-
-    //finding the length of the input
+$(document).ready(function() {
+  $("textarea").on("input", function() {
+   
+    //Finding the length of the input
     const tweetLength = this.value.length;
 
     //next() method returns the next sibling elements(e that share the same parent) of the selected element.
-    // find() method returns descendant (child, grandchild, & so on) elements of the selected element. 
+    // find() method returns descendant (child, grandchild, & so on) elements of the selected element.
     const output = $(this).next().find('#counterID');
 
-    //counter updating with the value of characters remaining
-    const charactersRemaining = 140 - tweetLength
+    //Counter updating with the value of characters remaining
+    const charactersRemaining = 140 - tweetLength;
     output[0].defaultValue = charactersRemaining;
 
-    console.log(output[0].defaultValue);
-  })
+    if (charactersRemaining < 0) {
+      $("#counterID").css({color: "#D83A56"});
+    } else {
+      $("#counterID").css({color: "#171717"});
+    }
+  });
 });
-//   $(".tweet-text").on("input",function() {
-//     let textCount = $(this).val(); //capturing all characters in the textarea
-//     let newCount = 140 - textCount.length; 
-//     $(".counter").val(newCount);
-
-//     if(newCount < 0) {
-//         $(".counter").css({color: "#ff0000"});
-//     } else {
-//         $(".counter").css({color: "#000000"});
-//     }
-
-// })
 
 /*---------------------------------------------Testing event handlers---------------------------*/
 /*
@@ -54,13 +41,13 @@ document.addEventListener("dblclick", (event) => {
 document.addEventListener("keyup", (event) => {
   console.log(event);
   
-  const keyInput = event.key;  
+  const keyInput = event.key;
   console.log(`Key pressed: ${keyInput}` )
 });
 
 document.addEventListener("keydown", (event) => {
   //console.log(event);
-  const keyInput = event.key;  
+  const keyInput = event.key;
 
   console.log(`Key pressed: ${keyInput}` )
 });

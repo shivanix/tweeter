@@ -9,14 +9,17 @@ $(document).ready(function() {
   console.log("Yes, am ready.");
 
 
-  /*----------------------------------------adding event listener for submit--------------------------------*/
-  // event.preventDefault() to prevent the default form submission behaviour.
+  /*----------------------------------------Adding event listener for submit--------------------------------*/
 
   $("#tweet-made").submit(function(event) {
+  
+    // event.preventDefault() to prevent the default form submission behaviour.
     event.preventDefault();
-    $(".error-message").hide(); // Hide error html element prior to validation
+  
+    // Hide error html element prior to validation
+    $(".error-message").hide(); 
     const formData = $(this).serialize();
-    console.log("Length: ", formData.length - 5);
+    
 
     //validation before sending the form data to the server
     if ((formData.length - 5) <= 140 && formData !== null && !((formData.length - 5) <= 0)) {
@@ -28,18 +31,20 @@ $(document).ready(function() {
       })
         //reloads the page after posting a valid tweet
         .then(location.reload(true));
+
     //error messages
     } else {
       $(".error-message").slideDown(600);
       if (formData.length > 140) {
-        $(".error-message").find("p").text("Oops! tweet content too long.");
+        $(".error-message").find("p").text("Oops! tweet content too long, limit to 140 chars.");
       }
       if ((formData.length - 5) <= 0) {
-        $(".error-message").find("p").text("Oops! tweet content is empty");
+        $(".error-message").find("p").text("Oops! tweet content is empty.");
       }
       if (formData === null) {
-        $(".error-message").find("p").text("Oops! tweet content is invalid");
+        $(".error-message").find("p").text("Oops! tweet content is invalid.");
       }
+      return $(".error-message").slideUp(600);
     }
 
   });
