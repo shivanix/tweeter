@@ -18,7 +18,7 @@ $(document).ready(function() {
     "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-    "created_at": 1461116232227
+    "created_at": timeago.format(1461116232227)
  }
 
  const createTweetElement = function (tweetData){
@@ -35,7 +35,7 @@ $(document).ready(function() {
    <h2>${tweetData.content.text}</h2>
    <hr>
    <footer>
-     <span>${tweetData.created_at} days ago</span>
+     <span>${tweetData.created_at}</span>
      <div>
        <span><i class="fas fa-flag"></i></span>
        <span><i class="fas fa-retweet"></i></span>
