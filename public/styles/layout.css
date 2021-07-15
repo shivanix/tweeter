@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -19,23 +22,13 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
-   display: flex;
   
-   align-items: center;
-   flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-
- /* .container {
-   background-color: #FAF1E6;
-   
-   flex-wrap: wrap;/*wrap value specifies that the flex items will wrap if necessary*/
-   
-   /*
-   
-   position: absolute;
-   width: 90%;
- } */

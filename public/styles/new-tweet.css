@@ -1,27 +1,38 @@
+.btn-counter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-counter output {
+  font-weight: bold;
+}
+
+
 .button1 {
   background-color: #125D98;
   color: #FFFF;
-  
+
   justify-content: space-between;
   font-family: Bungee, sans-serif;
 }
 
 .button1:hover {
   color: aqua;
+  cursor: pointer;
   transition-duration: 0.4s;
 }
 
 
 .container {
-  margin-top: 520px;
+  border: 5px solid red;
+  margin-top: 10px;
   padding-left: 1.5em;
   padding-right: 1.5em;
   width: 100%;
 }
 
-.btn-counter {
-  display: flex;
-  justify-content: space-between;
+.new-tweet label {
+  font-weight: bold;
 }
 
 #tweet-text {

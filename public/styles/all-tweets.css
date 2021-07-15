@@ -6,23 +6,41 @@ hr{
   width: 100%
 }
 
-.tweets-container header{
-display: flex;
-justify-content: space-between;
+.tweets-container header {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
 }
 
 .tweets-container {
   border: 2px solid black;
+  
+  font-size: 15px;
 
   margin-top: 50px;
   padding-left: 1.5em;
   padding-right: 1.5em;
   
-  width: 100%;
+  width: auto;
 }
+
 
 .tweets-container footer{
   display: flex;
+  margin-bottom: 20px;
   justify-content: space-between;
  
 }
+
+.tweets-container article:hover{
+  box-shadow: 2px 5px;
+}
+
+.tweets-container h3{
+  opacity: 0.5;
+}
+i:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+

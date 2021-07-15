@@ -1,4 +1,4 @@
-alert("Hey! Am working! Wohoo!");
+// alert("Hey! Am working! Wohoo!");
 
 /*---------------------------------------------Testing event handlers---------------------------*/
 /*
@@ -31,6 +31,8 @@ document.addEventListener("keydown", (event) => {
 */
 
 /*-------------------------------------- Event-handlers on selectors using jquery-------------*/
+// it's beneficial to use the on method; bind/click are mapped to the on method internally
+//utilizing the on method is going to result in faster and more consistent code.
 /*
 $("#tweet-text").blur(function () {
  
@@ -49,7 +51,7 @@ $("#tweet-text").on("keypress", function () {
 
 
   $("#tweet-text").on("input", function() {
-
+    console.log("INPUT DETECTED!");
     // accessing the value of the input
     console.log(this.value);
 
@@ -58,14 +60,13 @@ $("#tweet-text").on("keypress", function () {
     
     //next() method returns the next sibling elements(e that share the same parent) of the selected element.
     // find() method returns descendant (child, grandchild, & so on) elements of the selected element. 
-    const output = $(this).next().find('output');
+    const output = $(this).next().find('#counterID');
     
     //counter updating with the value of characters remaining
     const charactersRemaining = 140 - tweetLength
-    output["0"].defaultValue = charactersRemaining;
-
-    
-    
+    output[0].defaultValue = charactersRemaining;
+ 
+    console.log(output[0].defaultValue);
   });
 
 

@@ -2,7 +2,7 @@
   border: 5px solid white;
   height: 400px;
   width: 100vw;
-  position: absolute;
+  /* position:absolute; */
   top: 0;
   z-index:-1;
 

@@ -1,29 +1,29 @@
 nav {
   border: 5px solid white;
-width: 100vw;
-height: 120px;
-background-color: #125D98;
-color: #FFFF;
+  width: 100vw;
+  height: 120px;
+  background-color: #125D98;
+  color: #FFFF;
 
-padding-left: 1.5em;
-padding-right: 1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
 }
 
-.tweeter{
-font-family: Bungee, sans-serif;
+.tweeter {
+  font-family: Bungee, sans-serif;
 }
 
-i{
+i {
   color: red;
 }
 
 
-.block{
+.block {
   display: flex;
   flex-direction: column;
   align-items: center;
