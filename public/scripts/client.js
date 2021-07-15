@@ -3,29 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// const tweetData = [{
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png",
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": '1994-05-25'
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd"
-//     },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
+
 
 $(document).ready(function () {
 
@@ -38,40 +16,52 @@ $(document).ready(function () {
   // event.preventDefault() to prevent the default form submission behaviour.
 
   $("#tweet-made").submit(function (event) {
-    alert("Handler for .submit() called.");
     event.preventDefault();
     const formData = $(this).serialize();
-    console.log("Length: ", formData.length);
+    console.log("Length: ", formData.length - 5);
 
     //validation before sending the form data to the server
-    if (formData.length <= 140 && formData !== null && formData !== "") {
+    if ((formData.length - 5) <= 140 && formData !== null && formData !== "") {
 
       // AJAX POST request
       $.ajax({
-        type: "POST",
-        url: '/tweets',
-        data: formData
-      });
+          type: "POST",
+          url: '/tweets',
+          data: formData
+        })
+        //reloads the page after posting a valid tweet
+        .then(location.reload(true))
+
     } else {
-      alert("Oops! Try again");
+      if (formData.length > 140) {
+        alert("Oops! tweet content too long.")
+      }
+      if (formData === "") {
+        alert("Oops! tweet content is empty")
+      }
+      if (formData === null) {
+        alert("Oops! tweet content is invalid")
+      }
     }
 
   });
 
-  const loadTweets = function (arr){
-    // $.get("/tweets", renderTweets(tweetData));
+  /*---------------------------------------f calls AJAX get req then renders tweets--------------- */
+  const loadTweets = function () {
+
     $.ajax({
-      type: "GET",
-      url: '/tweets'
-    })
-    .then(function (moreTweets){
-      renderTweets(moreTweets);
-    })
+        type: "GET",
+        url: '/tweets'
+      })
+      .then(function (moreTweets) {
+        renderTweets(moreTweets);
+      })
   };
   loadTweets();
 });
 
 /*----------------------------------------f to return HTML tweet structure-------------------------*/
+
 const createTweetElement = function (tweetData) {
   const userData = tweetData.user;
 
@@ -79,11 +69,11 @@ const createTweetElement = function (tweetData) {
    <header>
      <div>
        <img src="${userData.avatars}" alt="boy-img">
-       <span>${userData.name}</span>
+       <span>${escapeHtml(userData.name)}</span>
      </div>
-     <span><h3>${userData.handle}</h3></span>
+     <span><h3>${escapeHtml(userData.handle)}</h3></span>
    </header>
-   <h2>${tweetData.content.text}</h2>
+   <h2>${escapeHtml(tweetData.content.text)}</h2>
    <hr>
    <footer>
      <span>${timeago.format(tweetData.created_at)}</span>
@@ -113,3 +103,6 @@ const renderTweets = function (tweetsArray) {
   }
 }
 
+function escapeHtml(str) {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
