@@ -3,40 +3,58 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-
-$(document).ready(function() {
-  // --- our code goes here ---
-  console.log("Yes, am ready.");
-  console.log(timeago.format(new Date()));
-
-  const tweetData = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": '1994-05-25'
+const tweetData = [{
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@SirIsaac"
     },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": '1994-05-25'
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd"
+    },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+]
 
- const createTweetElement = function (tweetData){
-  const userData = tweetData.user; 
+$(document).ready(function () {
+
+  console.log("Yes, am ready.");
+
+  renderTweets(tweetData);
+
+
+  /*----------------------------------------adding event listener for submit--------------------------------*/
+  // event.preventDefault() to prevent the default form submission behaviour.
+
+  $("#tweet-made").submit(function (event) {
+    alert("Handler for .submit() called.");
+    event.preventDefault();
+    const formData = $(this).serialize();
+    console.log(event);
+
+    // AJAX POST request
+    $.ajax({
+      type: "POST",
+      url: '/tweets',
+      data: formData
+    });
+  });
+});
+
+/*----------------------------------------f to return HTML tweet structure-------------------------*/
+const createTweetElement = function (tweetData) {
+  const userData = tweetData.user;
 
   const htmlMarkup = ` <article>
    <header>
@@ -57,18 +75,15 @@ $(document).ready(function() {
      </div>
    </footer>
  </article>`;
+
   const $tweet = $(htmlMarkup);
+  
   return $tweet;
 }
 
-//  const $tweet = createTweetElement(tweetData);
+/*-------------------------------------f for taking in array of tweet objects----------------------------*/
 
-
-
-
-/*---------------------------------------------------f for taking array------------------------------------------------*/
-
-const renderTweets = function(tweetsArray){
+const renderTweets = function (tweetsArray) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
@@ -78,7 +93,3 @@ const renderTweets = function(tweetsArray){
     $('.tweets-container').append($newTweet);
   }
 }
-
-renderTweets(tweetData);
-});
-
