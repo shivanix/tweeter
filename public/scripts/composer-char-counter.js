@@ -13,8 +13,7 @@ $(document).ready(function() {
 
     //Counter updating with the value of characters remaining
     const charactersRemaining = 140 - tweetLength;
-    output[0].defaultValue = charactersRemaining;
-
+    output.val(charactersRemaining);
     if (charactersRemaining < 0) {
       $("#counterID").css({color: "#D83A56"});
     } else {

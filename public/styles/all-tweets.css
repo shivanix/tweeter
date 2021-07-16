@@ -45,8 +45,12 @@ hr{
 .tweets-container h3{
   opacity: 0.5;
 }
+i{
+  color:#444444 ;
+}
 i:hover{
+  color: #480032;
   cursor: pointer;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 

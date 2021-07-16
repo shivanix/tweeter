@@ -5,12 +5,10 @@
  */
 
 $(document).ready(function() {
-
-  console.log("Yes, am ready.");
   
-  /*---------------------------------------f calls AJAX get req then renders tweets--------------- */
+  /*---------------------------------------Func calls AJAX Get req then renders tweets--------------- */
   const loadTweets = function() {
-    console.log("loadTweets f");
+    
     $.ajax({
       type: "GET",
       url: '/tweets'
@@ -20,8 +18,8 @@ $(document).ready(function() {
         renderTweets(moreTweets);
       });
   };
-  console.log("loadTweets");
-  loadTweets();
+  
+   loadTweets();
 
   /*----------------------------------------Adding event listener for submit--------------------------------*/
 
@@ -31,27 +29,27 @@ $(document).ready(function() {
     event.preventDefault();
   
     // Hide error html element prior to validation
-    $(".error-message").hide(); 
+    $(".error-message").hide();
     const formData = $(this).serialize();
     
-
-    //validation before sending the form data to the server
+    // validation before sending the form data to the server
     if ((formData.length - 5) <= 140 && formData !== null && !((formData.length - 5) <= 0)) {
-      console.log("ajaxPos");
+      
       $.ajax({
         type: "POST",
         url: '/tweets',
         data: formData
       })
-        //reloads the page after posting a valid tweet
-        // "done" is used instead of then because done will only execute when the Deferred object is resolved
-        // "then" will execute even while the Deferred object is still in progress
+      
+      // "done" is used instead of then because done will only execute when the Deferred object is resolved
+      // "then" will execute even while the Deferred object is still in progress
         .done(()=>{
-          $("textarea").val('');
-           $("#counterID").val(140);
-            loadTweets();
-          });
-    //error messages
+          $("textarea").val('');//Clear text area
+           $("#counterID").val(140);//Setting character numbers to 140
+          loadTweets();
+        });
+
+      // error messages
     } else {
       console.log("error");
       $(".error-message").slideDown(600);
@@ -66,13 +64,10 @@ $(document).ready(function() {
       }
       return $(".error-message").slideUp(3000);
     }
-
   });
-
-
 });
 
-/*----------------------------------------f to return HTML tweet structure-------------------------*/
+/*----------------------------------------Func to return HTML tweet structure-------------------------*/
 
 const createTweetElement = function(tweetData) {
   const userData = tweetData.user;
@@ -102,12 +97,12 @@ const createTweetElement = function(tweetData) {
   return $tweet;
 };
 
-/*-------------------------------------f for taking in array of tweet objects----------------------------*/
+/*-------------------------------------Func for taking in array of tweet objects----------------------------*/
 
 const renderTweets = function(tweetsArray) {
   // loops through tweets
   // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
+  // takes return value and prepends it to the tweets container
 
   for (const tweet of tweetsArray) {
     const $newTweet = createTweetElement(tweet);
@@ -115,6 +110,7 @@ const renderTweets = function(tweetsArray) {
   }
 };
 
+/*--------------------------------------Preventing XSS with an "escape" func----------------------------------*/
 const escapeHtml = function(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 };
