@@ -44,9 +44,13 @@ $(document).ready(function() {
         data: formData
       })
         //reloads the page after posting a valid tweet
-        .then($("textarea").val(''))
-        .then($("#counterID").val(140))
-        .then( loadTweets());
+        // "done" is used instead of then because done will only execute when the Deferred object is resolved
+        // "then" will execute even while the Deferred object is still in progress
+        .done(()=>{
+          $("textarea").val('');
+           $("#counterID").val(140);
+            loadTweets();
+          });
     //error messages
     } else {
       console.log("error");
