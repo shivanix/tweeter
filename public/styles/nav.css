@@ -10,8 +10,9 @@ nav {
   padding-left: 1.5em;
   padding-right: 1.5em;
 
+  /* align-self: stretch; */
   position: fixed;
-  width: 100vw;
+  width: 100%;
 }
 
 .tweeter {

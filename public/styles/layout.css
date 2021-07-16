@@ -23,12 +23,71 @@ body {
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  
+  display: inline;
   overflow-x: hidden;
 }
+  
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+ @media(min-width: 768px) {
+  body{
+    width: 768px;
+    /* margin-left: auto;
+    margin-right: auto;  */
+  }
+  nav{
+    background-image: url("black-felt.png");
+    background-color: #3c8dad;
+    border: none;
+  }
+  .profile{
+    border: none;
+    /* height: 150px; */
+  }
+} 
+
+@media (min-width: 1024px) {
+  nav{
+    
+    width: 100%;
+  }
+  .profile{
+    width: 25%;
+  }
+  .container{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-left: 200px;
+  }
+  .c4{
+    padding-left: 36px;
+    margin-top: 100px;
+  }
+}
+
+.profile img{
+  margin-top: 10px;
+}
+
+.profile h2{
+  margin: 0;
+}
+
+.new-tweet{
+  margin-top: 70px;
+}
+.c4{
+/*  
+  border: 4px solid red; */
+  flex-direction: row;
+
+  justify-content: space-between;
+  width: 100%;
+
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  
+}

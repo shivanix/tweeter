@@ -7,7 +7,21 @@
 $(document).ready(function() {
 
   console.log("Yes, am ready.");
-
+  
+  /*---------------------------------------f calls AJAX get req then renders tweets--------------- */
+  const loadTweets = function() {
+    console.log("loadTweets f");
+    $.ajax({
+      type: "GET",
+      url: '/tweets'
+    })
+      .then(function(moreTweets) {
+        $(".tweets-container").empty();
+        renderTweets(moreTweets);
+      });
+  };
+  console.log("loadTweets");
+  loadTweets();
 
   /*----------------------------------------Adding event listener for submit--------------------------------*/
 
@@ -23,17 +37,19 @@ $(document).ready(function() {
 
     //validation before sending the form data to the server
     if ((formData.length - 5) <= 140 && formData !== null && !((formData.length - 5) <= 0)) {
-      
+      console.log("ajaxPos");
       $.ajax({
         type: "POST",
         url: '/tweets',
         data: formData
       })
         //reloads the page after posting a valid tweet
-        .then(location.reload(true));
-
+        .then($("textarea").val(''))
+        .then($("#counterID").val(140))
+        .then( loadTweets());
     //error messages
     } else {
+      console.log("error");
       $(".error-message").slideDown(600);
       if (formData.length > 140) {
         $(".error-message").find("p").text("Oops! tweet content too long, limit to 140 chars.");
@@ -44,23 +60,12 @@ $(document).ready(function() {
       if (formData === null) {
         $(".error-message").find("p").text("Oops! tweet content is invalid.");
       }
-      return $(".error-message").slideUp(600);
+      return $(".error-message").slideUp(3000);
     }
 
   });
 
-  /*---------------------------------------f calls AJAX get req then renders tweets--------------- */
-  const loadTweets = function() {
 
-    $.ajax({
-      type: "GET",
-      url: '/tweets'
-    })
-      .then(function(moreTweets) {
-        renderTweets(moreTweets);
-      });
-  };
-  loadTweets();
 });
 
 /*----------------------------------------f to return HTML tweet structure-------------------------*/

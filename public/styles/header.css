@@ -1,7 +1,7 @@
 .profile{
   border: 5px solid white;
   height: 400px;
-  width: 100vw;
+  width: 100%;
   /* position:absolute; */
   top: 0;
   z-index:-1;
@@ -14,3 +14,4 @@
   background-color: #3c8dad;
   margin-top: 120px;
 }
+

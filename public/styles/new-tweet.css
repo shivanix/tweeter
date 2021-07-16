@@ -24,7 +24,9 @@
 
 
 .container {
-  border: 2px solid #00A8CC;
+  /* border: 2px solid #00A8CC; */
+  display: flex;
+  flex-direction: column;
   margin-top: 10px;
   padding-left: 1.5em;
   padding-right: 1.5em;
