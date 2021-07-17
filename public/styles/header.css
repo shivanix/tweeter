@@ -2,7 +2,6 @@
   border: 5px solid white;
   height: 400px;
   width: 100%;
-  /* position:absolute; */
   top: 0;
   z-index:-1;
 
@@ -10,7 +9,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* background-image: url("black-felt.png"); */
   background-color: #3c8dad;
   margin-top: 120px;
 }
