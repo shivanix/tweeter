@@ -36,6 +36,7 @@ hr{
   margin-bottom: 50px;
   padding-left: 1.5em;
   padding-right: 1.5em;
+  overflow-wrap: break-word;
   
 }
 .tweets-container article:hover{

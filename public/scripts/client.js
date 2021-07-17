@@ -52,7 +52,7 @@ $(document).ready(function() {
       // error messages
     } else {
       console.log("error");
-      $(".error-message").slideDown(600);
+      $(".error-message").slideDown(200);
       if (formData.length > 140) {
         $(".error-message").find("p").text("Oops! tweet content too long, limit to 140 chars.");
       }
