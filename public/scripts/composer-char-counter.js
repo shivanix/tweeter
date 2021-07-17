@@ -1,5 +1,5 @@
 
-/*-------------------------------------Showing characters remaining in the counter----------------*/
+/*-----------------------------------Showing characters remaining in the counter----------------*/
 
 $(document).ready(function() {
   $("textarea").on("input", function() {
@@ -22,7 +22,7 @@ $(document).ready(function() {
   });
 });
 
-/*---------------------------------------------Testing event handlers---------------------------*/
+/*------------------------------------------Testing event handlers---------------------------*/
 /*
 $(document).ready(function() {
    // --- our code goes here ---
@@ -52,7 +52,7 @@ document.addEventListener("keydown", (event) => {
 });
 */
 
-/*-------------------------------------- Event-handlers on selectors using jquery-------------*/
+/*----------------------------------- Event-handlers on selectors using jquery-------------*/
 // it's beneficial to use the on method; bind/click are mapped to the on method internally
 //utilizing the on method is going to result in faster and more consistent code.
 /*

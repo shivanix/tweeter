@@ -62,7 +62,9 @@ $(document).ready(function() {
       if (formData === null) {
         $(".error-message").find("p").text("Oops! tweet content is invalid.");
       }
-      return $(".error-message").slideUp(3000);
+      return $("body").click(function() {
+      $(".error-message").slideUp(1000);
+      })
     }
   });
 });
