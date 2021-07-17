@@ -22,6 +22,7 @@ $(document).ready(function() {
   });
 });
 
+
 /*------------------------------------------Testing event handlers---------------------------*/
 /*
 $(document).ready(function() {
