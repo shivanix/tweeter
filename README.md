@@ -4,9 +4,9 @@ A simple single-page AJAX-based Twitter clone that uses jQuery, HTML5, and CSS3.
 
 ## Final Product
 
-!["tweet-box"](placeholder)
+!["tweet-box"](https://github.com/shivanix/tweeter/blob/dynamic-tweets/imgs/tweet_box.png?raw=true)
 
-!["tweets"](placeholder)
+!["tweets"](https://github.com/shivanix/tweeter/blob/dynamic-tweets/imgs/tweets.png?raw=true)
 
 
 ## Dependencies
